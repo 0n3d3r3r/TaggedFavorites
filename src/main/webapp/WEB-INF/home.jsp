@@ -29,7 +29,7 @@
 							<h3><c:out value="${user.userName}"></c:out>'s list of favorite Games</h3>
 						</div>
 						<div class="col gap-2 d-flex justify-content-end">
-							<a class="btn btn-success shadow" href="/games/new">Add a game</a>
+							<a class="btn btn-success shadow" href="/taggedfavorites/games/create">Add a game</a>
 						</div>
 					</div>
 				</div>
