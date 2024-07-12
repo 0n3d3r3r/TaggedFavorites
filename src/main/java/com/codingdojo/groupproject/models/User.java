@@ -16,6 +16,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -36,13 +37,13 @@ public class User {
     private String email;
     
     @NotEmpty(message="Password is required!")
-    @Size(min=8, max=128, message="Password must be between 8 and 128 characters")
+    @Size(min=8, max=128, message="Password must be between 8 and 128 characters.")
     private String password;
     
-    /*@Transient
-    @NotEmpty(message="Confirm Password is required!")
-    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
-    private String confirm;*/
+    //@Transient
+    //@NotEmpty(message="Confirmation Password is required!")
+    //@Size(min=8, max=128, message="Confirmation Password must be between 8 and 128 characters.")
+    //private String confirmationPassword;
     
     @Column(updatable=false)
     private Date createdAt;
@@ -106,13 +107,13 @@ public class User {
 		this.password = password;
 	}
 
-	/*public String getConfirm() {
-		return confirm;
-	}
+	//public String getConfirmationPassword() {
+	//	return confirmationPassword;
+	//}
 
-	public void setConfirm(String confirm) {
-		this.confirm = confirm;
-	}*/
+	//public void setConfirmationPassword(String confirmationPassword) {
+	//	this.confirmationPassword = confirmationPassword;
+	//}
 	
 	@PrePersist
 	protected void onCreate()

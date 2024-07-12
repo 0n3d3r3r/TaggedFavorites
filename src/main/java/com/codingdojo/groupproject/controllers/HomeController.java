@@ -44,8 +44,7 @@ public class HomeController {
 		if(result.hasErrors()) {
 			model.addAttribute("newLogin", new LoginUser());
 			return "index.jsp";
-		}
-		
+		}		
 		session.setAttribute("currentuser", user.getId());
 		return "redirect:/taggedfavorites/home";
 	}

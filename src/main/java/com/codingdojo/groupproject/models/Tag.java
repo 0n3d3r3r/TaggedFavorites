@@ -31,7 +31,7 @@ public class Tag {
 	)
 	private List<Media> medias;
 	
-	@NotEmpty(message="This message should never show up.")
+	//@NotEmpty(message="This message should never show up.")
 	private Long conflictId;
 	
 	public Tag() {}
