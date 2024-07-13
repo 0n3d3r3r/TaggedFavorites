@@ -1,5 +1,7 @@
 package com.codingdojo.groupproject.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -107,6 +109,20 @@ public class HomeController {
 		}
 	}
 	
+	
+	@GetMapping("/taggedfavorites/{mediaId}/matches")
+	public String displayMatches(@PathVariable("mediaId") Long mediaId, Model model) {
+		if(session.getAttribute("currentuser")== null) {
+			return "redirect:/";
+		}else {
+			User user = userService.findUserById((long) session.getAttribute("currentuser"));
+			Media media = mediaService.findMedia(mediaId);
+			List<Media> matches = mediaService.getRecommendedMedia(media);
+			model.addAttribute("favorite", media);
+			model.addAttribute("matches", matches);
+			return "matchesPage.jsp";
+		}
+	}
 	
 	
 	@GetMapping("/logout")
